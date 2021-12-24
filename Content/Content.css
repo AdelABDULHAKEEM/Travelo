@@ -1,0 +1,153 @@
+﻿
+/*SignUp  Style*/
+
+.Signup_Form , .Contact_us{
+	  position:relative;
+	  width:635px;
+	  height:100%;
+	  margin:50px auto 100px;
+	  text-align:center;
+	  background:#eeeeef;
+	  padding:40px;
+	  border:2px solid #fff;
+			 
+  }
+.Reg{
+
+     background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+}
+.User_Name{
+    display:flex;
+    flex-wrap:nowrap;
+}
+  #info{
+		font-weight: bold;
+		color:red;
+	}
+  form div {
+	  text-align: left;
+	  margin: 5px 3px;
+	  font-size: 19px;	
+  }
+ 
+  .Gender_radio {
+	   display: flex;
+	  margin-right:310px;
+      align-items:center;
+      justify-content:space-around;
+
+  }
+  
+  
+  
+  .Signup_head h4 , .LogIn_head , .ContactUS_head{
+	  font-family: 'Source Sans Pro', sans-serif;
+	  font-size:2em;
+	  font-weight:300;
+	  margin: -24px 13px 12px 12px;
+	  color:#7f8c8d;
+	  text-shadow:1px 1px 0px white;
+  }
+   
+ .Signup_Form .button {
+    position: relative;
+    float: left;
+    width: 145px;
+    margin-top: 10px;
+    background: #507492;
+    color: #fff;
+    font-weight: 400;
+    text-shadow: 1px 1px 0px #2d7baf;
+    box-shadow: -7px -6px 0px #9c9c9cc4;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    outline:none;
+    font-family:Arial;
+}
+
+   
+ .Signup_Form .button:hover {
+	 background-color:#3a5e7b;
+	 border-bottom-right-radius: 32%;
+	 border-bottom-left-radius: 32%;
+  } 
+  
+  
+Signup_Form  .button {
+  cursor: pointer;
+  font-weight: bold;    
+  }
+
+/*About US  Style*/
+.about .fa-star{
+    color:red;
+
+}
+
+.about {
+    padding: 140px;
+}
+
+.about h3 {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.about p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #999999;
+    margin: 20px 0 15px;
+    padding: 0;
+}
+
+.about h4 {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 8px 0;
+}
+
+.about h4 i {
+    color: #F24259;
+    margin-right: 10px;
+}
+   
+/*Login  Style*/
+
+.LogIn_Form{
+	  position:relative;
+	  width:635px;
+	  height:100%;
+	  margin:50px auto 100px;
+	  text-align:center;
+	  background:#2d7baf;
+	  padding:40px;
+	  border:2px solid #fff;
+      border-radius:5%;
+  }
+.LogIn_btn , .Contact_US_btn
+{
+    border-radius:15%;
+    border: 2px solid #2d7baf;
+    font-size:18px;
+    padding:8px;
+    width:75px;
+    height:45px;
+    font-family:Arial;
+}
+.LogIn_btn ,.Contact_US_btn:hover{
+   background-color: #1273eb;
+    color: #ffffff;
+    border:1px solid #ffffff;
+    transition:all 0.7s ease-in-out;
+    transform: scale(0.9);
+    box-shadow: 0 0 15px 9px rgba(0,0,0,.3);
+}
+.form-group .Pass_frog{
+    color:#fff;
+    font-size:22px;
+}

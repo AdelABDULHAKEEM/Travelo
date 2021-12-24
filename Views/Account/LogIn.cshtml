@@ -1,0 +1,46 @@
+﻿@model Travelo.Models.User_Tabel
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/Travelo_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="LogIn_Form">
+        <div class="LogIn_head"> <h4>LogIn</h4></div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+            <div class="Email">
+                @Html.TextBoxFor(model => model.Email, new { placeholder = " Please enter Your Email Address ", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+            <div class="Password">
+                @Html.PasswordFor(model => model.Password, new { placeholder = " Please enter Your Password ", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="LogIn" class="LogIn_btn" title="LogIn" />
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.ActionLink("Forget Password", "Forget_Password", "Account", new { area = "" } ,new {@class="Pass_frog"})
+        </div>
+</div>
+}
+

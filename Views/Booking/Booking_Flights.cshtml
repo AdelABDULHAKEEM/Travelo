@@ -1,0 +1,173 @@
+﻿@model Travelo.Models.Booking
+
+@{
+    ViewBag.Title = "Booking_Flights";
+    Layout = "~/Views/Shared/Travelo_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="margin-bottom: 110px">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group text-danger">
+            <div class="col-md-12">
+                @ViewBag.MSG
+            </div>
+        </div>
+
+        <!--travel-box start-->
+        <div class="travel">
+            <section class="travel-box">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="single-travel-boxes">
+                                <div id="desc-tabs" class="desc-tabs">
+
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active">
+                                            @Html.ActionLink("flights","Booking_Flights", "Booking", new { area = "" })
+                                               
+                                        </li>
+                                        <li role="presentation">
+                                            @Html.ActionLink("hotels","Booking", "Booking", new { area = "" })
+                                              
+                                        </li>
+
+                                      
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active fadein" id="flights">
+                                            <div class="tab-para">
+
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-3 col-sm-4">
+                                                        <div class="single-tab-select-box">
+                                                            @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label col-md-5" })
+                                                            <div class="travel-select-icon">
+                                                                @Html.DropDownListFor(Model => Model.From, new List<SelectListItem>
+           {
+               
+                new SelectListItem { Text = "cairo", Value = "cairo" },
+                new SelectListItem { Text = "Sohage", Value = "Sohage" },
+                new SelectListItem { Text = "Luxor", Value = "Luxor" }}, new { @class = "form-control" })
+                                                              
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-3 col-sm-4">
+                                                        <div class="single-tab-select-box">
+                                                            @Html.LabelFor(model => model.TO, htmlAttributes: new { @class = "control-label col-md-10" })
+                                                            <div class="travel-select-icon">
+                                                                @Html.DropDownListFor(Model => Model.TO, new List<SelectListItem>
+           {
+                new SelectListItem { Text = "Kuwait", Value = "Kuwait" },
+                new SelectListItem { Text = "Saudi Arabia", Value = "Saudi Arabia" },
+                new SelectListItem { Text = "Jordan", Value = "Jordan" },
+                new SelectListItem { Text = "France", Value = "France" },
+                new SelectListItem { Text = "USA", Value = "USA" },
+                new SelectListItem { Text = "Italy", Value = "Italy" },
+                new SelectListItem { Text = "British", Value = "British" }}, new { @class = "form-control" })
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-5 col-md-3 col-sm-4">
+                                                        <div class="single-tab-select-box">
+                                                            @Html.LabelFor(model => model.Departure, htmlAttributes: new { @class = "control-label col-md-5" })
+                                                            <div class="travel-select-icon">
+                                                                @Html.EditorFor(model => model.Departure, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.Departure, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-5 col-md-3 col-sm-4">
+                                                        <div class="single-tab-select-box">
+                                                            @Html.LabelFor(model => model.Return, htmlAttributes: new { @class = "control-label col-md-5" })
+                                                            <div class="travel-select-icon">
+                                                                @Html.EditorFor(model => model.Return, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.Return, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4 col-md-3 col-sm-4">
+                                                        <div class="single-tab-select-box">
+                                                            @Html.LabelFor(model => model.Adults, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="travel-select-icon">
+                                                                @Html.DropDownListFor(Model => Model.Adults, new List<SelectListItem>
+           {
+                new SelectListItem { Text = "Choose Your Adults", Value = "0" },
+                new SelectListItem { Text = "5", Value = "5" },
+                new SelectListItem { Text = "10", Value = "10" },
+                new SelectListItem { Text = "15", Value = "15" },
+                new SelectListItem { Text = "20", Value = "20" }}, new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.Adults, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4 col-md-3 col-sm-4">
+                                                        <div class="single-tab-select-box">
+                                                            @Html.LabelFor(model => model.Childs, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="travel-select-icon">
+                                                                @Html.DropDownListFor(Model => Model.Childs, new List<SelectListItem>
+           {
+                new SelectListItem { Text = "Choose Your Childs", Value = "0" },
+                new SelectListItem { Text = "1", Value = "1" },
+                new SelectListItem { Text = "2", Value = "2" },
+                new SelectListItem { Text = "4", Value = "4" },
+                new SelectListItem { Text = "8", Value = "8" }}, new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.Childs, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <div class="col-lg-3 col-md-3 col-sm-4">
+                                                        <div class="single-tab-select-box">
+                                                            @Html.LabelFor(model => model.Class, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                            <div class="travel-select-icon">
+                                                                @Html.DropDownListFor(Model => Model.Class, new List<SelectListItem>
+           {
+                new SelectListItem { Text = "Choose Your Class", Value = "0" },
+                new SelectListItem { Text = "A", Value = "1" },
+                new SelectListItem { Text = "B", Value = "2" },
+                new SelectListItem { Text = "C", Value = "3" }}, new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.Class, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!--/.row-->
+                                                <div class="row">
+                                                    <div class="col-sm-5"></div><!--/.col-->
+                                                    <div class="clo-sm-7">
+                                                        <div class="about-btn travel-mrt-0 pull-right">
+                                                            <input type="submit" title="search" value="search" class="about-view travel-btn" />
+                                                        </div><!--/.about-btn-->
+                                                    </div><!--/.col-->
+
+                                                </div><!--/.row-->
+                                            </div><!--/.tab-para-->
+
+                                        </div><!--/.tabpannel-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+}
+

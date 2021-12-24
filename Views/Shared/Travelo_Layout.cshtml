@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Travelo</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+ </head>
+<body>
+    <div class="wrapper-main">
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm text-left">
+                        <div class="social-media">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="contact-details text-sm-right">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i>&nbsp; egy@gmail.com  </li>
+                                <li><i class="fa fa-phone fa-rotate-90"></i> +02 120 333 777 </li>
+                                <li><i class="fa fa-map-marker"></i>&nbsp; 6/56 ,North Cairo, NY </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light top-nav">
+        <div class="container">
+            <a class="navbar-brand ">
+                <img src="~/img/logo.jpg" alt="logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                         @Html.ActionLink("Home", "Home", "Home", new { area = "" }, new { @class = "nav-link active" })
+                    </li>
+                    @if (Session["message"] == null)
+                           {
+                    <li class="nav-item">
+                        @Html.ActionLink("Sign up", "Signup", "Account", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+
+                    <li class="nav-item">
+                        @Html.ActionLink("Login", "LogIn", "Account", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                          }
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About US <i class="fa fa-sort-down"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                            @Html.ActionLink("About US", "About_US", "Home", new { area = "" }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Our Team", "Our_Team", "Home", new { area = "" }, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                   @Html.ActionLink("Booking", "Booking", "Booking", new { area = "" }, new {@class = "nav-link" })
+                        </li>
+
+                    <li class="nav-item">
+                        @Html.ActionLink("Contact US", "Contact_us", "Account", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    
+                        @if (Session["message"] != null)
+                        {
+                            <li class="nav-item" style="padding:0px 13px">
+                                <img src="@Url.Content("~/Images_Users/" + Session["message"] + ".jpg")" width="70" height="40" title="Profile_Image" />
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("LogOut", "LogIn", "Account", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+                        }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="body-content">
+        @RenderBody()
+        
+    </div>
+
+
+
+    <!--footer-->
+        <footer>
+            <section id="footer" class="section footer">
+                <div class="container">
+                    <div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
+                        <div class="col-sm-12 align-center">
+                            <ul class="social-network social-circle">
+                                <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                  
+                    <div class="row align-center copyright">
+                        <div class="col-sm-12">
+                            <p>Copyright &copy; All rights reserved</p>
+                        </div>
+                    </div>
+                    <div class="credits text-center">
+                        @Html.ActionLink("www.Travelo.com", "Home", "Home", new { area = "" })
+                    </div>
+                </div>
+
+            </section>
+        </footer>
+    <!--End-footer-->
+</body>
+</html>

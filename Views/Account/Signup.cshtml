@@ -1,0 +1,134 @@
+﻿@model Travelo.Models.User_Tabel
+
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/Travelo_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Signup", "Account", FormMethod.Post, new
+{
+    enctype = "multipart/form-data"
+}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="Signup_Form">
+        <div class="Signup_head"> <h4>Fill This Fields</h4></div>
+        <hr />
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-12 text-danger">
+            @ViewBag.error
+        </div>
+        <div class="User_Name">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label" })
+                    <div class="FirstName">
+                        @Html.TextBoxFor(model => model.FirstName, new { placeholder = " Please enter Your First Name ", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label" })
+                    <div class="LastName">
+                        @Html.TextBoxFor(model => model.LastName, new { placeholder = " Please enter Your Last Name ", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+            <div class="Password">
+                @Html.PasswordFor(model => model.Password, new { placeholder = " Please enter Your Password ", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Confirmpwd, htmlAttributes: new { @class = "control-label" })
+            <div class="Confirmpwd">
+                @Html.PasswordFor(model => model.Confirmpwd, new { placeholder = " Please Re Type Your Password ", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Confirmpwd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+            <div class="Email">
+                @Html.TextBoxFor(model => model.Email, new { placeholder = " Please enter Your Email Address ", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label " })
+            <div class="Gender_radio">
+                @Html.RadioButtonFor(e => e.Gender, "Male", new { @class = "radio inline" })<span> Male </span>
+                @Html.RadioButtonFor(e => e.Gender, "Female", new { @class = "radio inline" })<span>Female </span>
+            </div>
+            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label" })
+            <div class="PhoneNumber">
+                @Html.TextBoxFor(model => model.PhoneNumber, new { placeholder = " Please enter Your Phone Number ", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label" })
+            <div class="City">
+                @Html.DropDownListFor(Model => Model.City , new List<SelectListItem>
+           {
+                new SelectListItem { Text = "Choose Your Country", Value = "0" },
+                new SelectListItem { Text = "Egypt", Value = "1" },
+                new SelectListItem { Text = "Kuwait", Value = "2" },
+                new SelectListItem { Text = "Saudi Arabia", Value = "3" },
+                new SelectListItem { Text = "Jordan", Value = "4" },
+                new SelectListItem { Text = "France", Value = "5" },
+                new SelectListItem { Text = "USA", Value = "6" },
+                new SelectListItem { Text = "Italy", Value = "7" },
+                new SelectListItem { Text = "British", Value = "8" },
+                new SelectListItem { Text = "Other", Value = "9" }},new { @class= "form-control" })
+               
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                
+            </div>
+        </div>
+     
+        <div class="form-group">
+            @Html.LabelFor(model => model.Other_City, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-12">
+                @Html.TextBoxFor(model => model.Other_City, new { placeholder = "Other City ", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Other_City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-6" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+           
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="button" title="SignUp" />
+            </div>
+        </div>
+    </div>
+}
+
